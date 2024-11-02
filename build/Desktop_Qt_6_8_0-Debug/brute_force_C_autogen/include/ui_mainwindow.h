@@ -27,7 +27,11 @@ public:
     QWidget *centralwidget;
     QLabel *label_name;
     QPushButton *btn_Force;
-    QTextEdit *textEdit;
+    QTextEdit *text_name;
+    QLabel *label_password;
+    QTextEdit *text_password;
+    QTextEdit *text_url;
+    QLabel *label_url;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -35,18 +39,30 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(242, 178);
+        MainWindow->resize(242, 284);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         label_name = new QLabel(centralwidget);
         label_name->setObjectName("label_name");
-        label_name->setGeometry(QRect(40, 30, 54, 17));
+        label_name->setGeometry(QRect(10, 30, 54, 17));
         btn_Force = new QPushButton(centralwidget);
         btn_Force->setObjectName("btn_Force");
-        btn_Force->setGeometry(QRect(130, 110, 80, 25));
-        textEdit = new QTextEdit(centralwidget);
-        textEdit->setObjectName("textEdit");
-        textEdit->setGeometry(QRect(120, 20, 104, 31));
+        btn_Force->setGeometry(QRect(130, 220, 80, 25));
+        text_name = new QTextEdit(centralwidget);
+        text_name->setObjectName("text_name");
+        text_name->setGeometry(QRect(120, 20, 104, 31));
+        label_password = new QLabel(centralwidget);
+        label_password->setObjectName("label_password");
+        label_password->setGeometry(QRect(10, 70, 161, 81));
+        text_password = new QTextEdit(centralwidget);
+        text_password->setObjectName("text_password");
+        text_password->setGeometry(QRect(120, 90, 104, 31));
+        text_url = new QTextEdit(centralwidget);
+        text_url->setObjectName("text_url");
+        text_url->setGeometry(QRect(120, 160, 104, 31));
+        label_url = new QLabel(centralwidget);
+        label_url->setObjectName("label_url");
+        label_url->setGeometry(QRect(10, 140, 161, 81));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -66,6 +82,9 @@ public:
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         label_name->setText(QCoreApplication::translate("MainWindow", "name", nullptr));
         btn_Force->setText(QCoreApplication::translate("MainWindow", "Force", nullptr));
+        label_password->setText(QCoreApplication::translate("MainWindow", "password field \n"
+"name", nullptr));
+        label_url->setText(QCoreApplication::translate("MainWindow", "url", nullptr));
     } // retranslateUi
 
 };
