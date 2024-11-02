@@ -1,0 +1,2 @@
+set(__QT_DEPLOY_TARGET_brute_force_C_FILE /home/hui/Documents/GitHub/brute_force_C/build/Desktop_Qt_6_8_0-Debug/brute_force_C)
+set(__QT_DEPLOY_TARGET_brute_force_C_TYPE EXECUTABLE)
