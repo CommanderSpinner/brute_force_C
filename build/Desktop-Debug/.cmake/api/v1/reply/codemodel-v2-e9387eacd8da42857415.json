@@ -1,0 +1,70 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-0b5495bcc936cc3fc57c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "brute_force_C",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "brute_force_C::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-brute_force_C-Debug-7650f1d04faecaa7b8f2.json",
+					"name" : "brute_force_C",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "brute_force_C_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-brute_force_C_autogen-Debug-5a1fbc613f8b9d7f6cb5.json",
+					"name" : "brute_force_C_autogen",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/gfladert/Documents/cpp/brute_force_C/build/Desktop-Debug",
+		"source" : "/home/gfladert/Documents/cpp/brute_force_C"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}
