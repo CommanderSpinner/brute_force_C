@@ -1,2 +1,0 @@
-set(__QT_DEPLOY_TARGET_brute_force_C_FILE /home/gfladert/Documents/cpp/brute_force_C/build/Desktop-Debug/brute_force_C)
-set(__QT_DEPLOY_TARGET_brute_force_C_TYPE EXECUTABLE)
