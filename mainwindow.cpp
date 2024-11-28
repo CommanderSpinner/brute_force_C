@@ -12,3 +12,9 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+void MainWindow::on_btn_Force_clicked()
+{
+    // Code to execute when the button is pressed
+    qDebug() << "Force button was pressed!";
+}
