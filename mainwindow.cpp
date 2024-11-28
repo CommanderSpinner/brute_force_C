@@ -1,5 +1,7 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
+#include <iostream>
+#include "debugConsole.h"
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
@@ -16,5 +18,5 @@ MainWindow::~MainWindow()
 void MainWindow::on_btn_Force_clicked()
 {
     // Code to execute when the button is pressed
-    qDebug() << "Force button was pressed!";
+    debugLog("Force button was pressed");
 }
