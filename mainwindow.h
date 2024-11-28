@@ -18,8 +18,7 @@ public:
     ~MainWindow();
 
 private slots:
-    // Declare the slot here
-    void on_btn_Force_clicked();  // Add this line
+    void on_btn_Force_clicked(); // Button handler
 private:
     Ui::MainWindow *ui;
 };
