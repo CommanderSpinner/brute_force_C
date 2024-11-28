@@ -104,9 +104,15 @@ name</string>
      <x>0</x>
      <y>0</y>
      <width>242</width>
-     <height>22</height>
+     <height>23</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuBrute_Forcer">
+    <property name="title">
+     <string>Brute Forcer</string>
+    </property>
+   </widget>
+   <addaction name="menuBrute_Forcer"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
