@@ -1,12 +1,16 @@
 #include "httpreq.h"
+#include <QApplication>
 
-HttpReq::httpReq(std::stirng req)
+HttpReq::HttpReq(std::string req)
 {
     this->request = req;
     if(!this->sendReq())
     {
         qDebug() << "failed to send request!" << "\n";
+        return;
     }
+
+
 }
 bool HttpReq::sendReq()
 {

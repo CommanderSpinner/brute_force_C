@@ -4,9 +4,11 @@
 #include "debugConsole.h"
 #include <curlpp/cURLpp.hpp>
 #include <curlpp/Easy.hpp>
+#include <memory>
 
-MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
+MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)//, ui(new Ui::MainWindow)
 {
+    std::unique_ptr<Ui::MainWindow> ui = std::make_unique<Ui::MainWindow>();
     ui->setupUi(this);
     this->setWindowTitle("Brute Forcer");
     this->setFixedSize(this->size());
@@ -14,7 +16,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 
 MainWindow::~MainWindow()
 {
-    delete ui;
+    //delete ui;
 }
 
 void MainWindow::on_btn_Force_clicked()
