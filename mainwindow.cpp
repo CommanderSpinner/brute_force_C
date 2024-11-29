@@ -19,5 +19,5 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_btn_Force_clicked()
 {
-    debugLog("Force button was pressed");
+    qDebug() << "Force button was pressed" << "\n";
 }
