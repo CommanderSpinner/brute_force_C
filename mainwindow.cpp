@@ -2,6 +2,8 @@
 #include "./ui_mainwindow.h"
 #include <iostream>
 #include "debugConsole.h"
+#include <curlpp/cURLpp.hpp>
+#include <curlpp/Easy.hpp>
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {

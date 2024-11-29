@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <curlpp/cURLpp.hpp>
+#include <curlpp/Easy.hpp>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
