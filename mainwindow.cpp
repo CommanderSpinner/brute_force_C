@@ -19,6 +19,5 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_btn_Force_clicked()
 {
-    // Code to execute when the button is pressed
     debugLog("Force button was pressed");
 }
