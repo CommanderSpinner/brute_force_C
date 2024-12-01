@@ -3,6 +3,7 @@
 
 HttpReq::HttpReq()
 {
+    qDebug << "Http request instantiated\n" <<;
 }
 
 bool HttpReq::sendReq()

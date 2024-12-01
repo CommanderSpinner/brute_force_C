@@ -1,6 +1,6 @@
 #include "sender.h"
 
-Sender::Sender(HttpReq req)
+Sender::Sender(HttpReq* req)
 {
     this->req = req;
 }
