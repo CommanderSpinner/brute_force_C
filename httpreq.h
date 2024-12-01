@@ -10,9 +10,21 @@
 class HttpReq
 {
 public:
-    HttpReq();
-private:
+    HttpReq(
+        std::string url,
+        std::string nameOfLoginNameField,
+        std::string nameToLogin,
+        std::string passwordFieldName,
+        std::string passwordToLogin
+        );
     bool sendReq();
+private:
+    std::string url;
+    std::string nameOfLoginNameField;
+    std::string nameToLogin;
+    std::string passwordFieldName;
+    std::string passwordToLogin;
+
 };
 
 #endif // HTTPREQ_H
