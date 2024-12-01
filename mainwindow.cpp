@@ -36,13 +36,13 @@ void MainWindow::on_btn_Force_clicked()
     qDebug() << "Force button was pressed" << "\n";
     //std::string url = ui->text_nameOfLoginNameField->toPlainText().toStdString();
     std::string url = ui->text_url->toPlainText().toStdString();
-    std::string nameOfLoginNameField = "";
-    std::string nameToLogin = "";
-    std::string passwordFieldName = "";
-    qDebug() << " url: " << url << "\n"
-             << "nameOfLoginNameField: " << nameOfLoginNameField << "\n"
-             << "nameToLogin: " << nameToLogin << "\n"
+    std::string nameOfLoginNameField = ui->text_nameOfLoginNameField->toPlainText().toStdString();
+    std::string nameToLogin = ui->text_nameToLogin->toPlainText().toStdString();
+    std::string passwordFieldName = ui->text_passwordFieldName->toPlainText().toStdString();
+    qDebug() << "nameToLogin: " << nameToLogin << "\n"
              << "passwordFieldName: " << passwordFieldName << "\n"
+             << "nameOfLoginNameField: " << nameOfLoginNameField << "\n"
+             << "url: " << url << "\n"
         << "\n";
     //std::unique_ptr<HttpReq> req = std::make_unique<HttpReq>();
 
