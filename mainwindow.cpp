@@ -24,10 +24,10 @@ MainWindow::~MainWindow()
 void MainWindow::on_btn_Force_clicked()
 {
     qDebug() << "Force button was pressed" << "\n";
-    std::string url = "";
-    std::string nameOfLoginNameField;
-    std::string nameToLogin;
-    std::string passwordFieldName;
+    std::string url = ui->text_nameOfLoginNameField->toPlainText().toStdString();
+    std::string nameOfLoginNameField = "e";
+    std::string nameToLogin = "e";
+    std::string passwordFieldName = "e";
     qDebug() << "url: " << url << "\n"
              << "nameOfLoginNameField: " << nameOfLoginNameField << "\n"
              << "nameToLogin: " << nameToLogin << "\n"
