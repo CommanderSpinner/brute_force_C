@@ -23,6 +23,5 @@ MainWindow::~MainWindow()
 void MainWindow::on_btn_Force_clicked()
 {
     qDebug() << "Force button was pressed" << "\n";
-    std::unique_ptr<HttpReq> req = std::make_unique<HttpReq>();
     //std::unique_ptr<HttpReq> req = std::make_unique<HttpReq>();
 }

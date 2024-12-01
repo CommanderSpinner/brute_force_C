@@ -10,12 +10,8 @@
 class HttpReq
 {
 public:
-    HttpReq(std::string req);
     HttpReq();
-    void setRequest(std::string req);
-    HttpReq setRequest();
 private:
-    std::string request;
     bool sendReq();
 };
 

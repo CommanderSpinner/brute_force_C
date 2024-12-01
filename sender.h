@@ -5,9 +5,9 @@
 class Sender
 {
 private:
-    HttpReq req;
+    HttpReq* req;
 public:
-    Sender(HttpReq* req);
+    Sender(HttpReq req);
 };
 
 #endif // SENDER_H
