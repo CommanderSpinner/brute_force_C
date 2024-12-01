@@ -8,8 +8,18 @@ class Sender
 private:
     HttpReq* req;
     std::string passwordTry;
+    bool tryPassword(
+    std::string url,
+    std::string nameOfLoginNameField,
+    std::string nameToLogin,
+    std::string passwordFieldName);
 public:
-    Sender();
+    Sender(
+    std::string url,
+    std::string nameOfLoginNameField,
+    std::string nameToLogin,
+    std::string passwordFieldName);
+    ~Sender();
 };
 
 #endif // SENDER_H
