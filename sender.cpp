@@ -1,5 +1,7 @@
 #include "sender.h"
 #include <QApplication>
+#include <iostream>
+#include <string>
 
 Sender::Sender(
     std::string url,
@@ -20,7 +22,7 @@ Sender::~Sender(){
 }
 
 
-bool tryPassword(
+bool Sender::tryPassword(
     std::string url,
     std::string nameOfLoginNameField,
     std::string nameToLogin,

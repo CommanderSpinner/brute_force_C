@@ -9,10 +9,10 @@ private:
     HttpReq* req;
     std::string passwordTry;
     bool tryPassword(
-    std::string url,
-    std::string nameOfLoginNameField,
-    std::string nameToLogin,
-    std::string passwordFieldName);
+        std::string url,
+        std::string nameOfLoginNameField,
+        std::string nameToLogin,
+        std::string passwordFieldName);
 public:
     Sender(
     std::string url,

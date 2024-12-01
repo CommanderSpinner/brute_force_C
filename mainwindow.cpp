@@ -24,16 +24,21 @@ MainWindow::~MainWindow()
 void MainWindow::on_btn_Force_clicked()
 {
     qDebug() << "Force button was pressed" << "\n";
-    std::string url;
+    std::string url = "";
     std::string nameOfLoginNameField;
     std::string nameToLogin;
     std::string passwordFieldName;
+    qDebug() << "url: " << url << "\n"
+             << "nameOfLoginNameField: " << nameOfLoginNameField << "\n"
+             << "nameToLogin: " << nameToLogin << "\n"
+             << "passwordFieldName: " << passwordFieldName << "\n"
+        << "\n";
     //std::unique_ptr<HttpReq> req = std::make_unique<HttpReq>();
-    /*
+
     std::unique_ptr<Sender> send = std::make_unique<Sender>(
     url,
     nameOfLoginNameField,
     nameToLogin,
-    passwordFieldName);*/
+    passwordFieldName);
 
 }
