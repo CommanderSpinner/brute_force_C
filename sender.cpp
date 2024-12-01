@@ -1,7 +1,7 @@
 #include "sender.h"
+#include <QApplication>
 
-Sender::Sender(HttpReq* req)
+Sender::Sender()
 {
-    this->req = req;
-    qDebug << "Sender instantiated\n";
+    qDebug() << "Sender instantiated\n";
 }

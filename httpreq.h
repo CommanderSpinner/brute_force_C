@@ -18,6 +18,7 @@ public:
         std::string passwordToLogin
         );
     bool sendReq();
+    ~HttpReq();
 private:
     std::string url;
     std::string nameOfLoginNameField;
