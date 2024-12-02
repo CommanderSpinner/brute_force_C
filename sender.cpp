@@ -32,5 +32,10 @@ bool Sender::tryPassword(
 
     HttpReq req(url, nameOfLoginNameField, nameToLogin, passwordFieldName);
 
+    if(!req.sendReq()){
+        qDebug() << "sometihng went wrong while sending the request!\n";
+        return false;
+    }
+
     return true;
 }
