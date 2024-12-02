@@ -25,10 +25,10 @@ HttpReq::~HttpReq()
 
 bool HttpReq::sendReq() // unfinnished
 {
-    try {
+    try
+    {
         // Initialising of cURLpp
         curlpp::Cleanup cleaner;
-
 
         // create req
         curlpp::Easy request;
@@ -48,8 +48,10 @@ bool HttpReq::sendReq() // unfinnished
         qDebug() << "request send" << std::endl;
     } catch (curlpp::RuntimeError &e) {
         qDebug() << "Runtime Error: " << e.what() << std::endl;
+        return false;
     } catch (curlpp::LogicError &e) {
         qDebug() << "Logic Error: " << e.what() << std::endl;
+        return false;
     }
 
     return true;
