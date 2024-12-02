@@ -23,7 +23,7 @@ HttpReq::~HttpReq()
     qDebug() << "Request destroyed";
 }
 
-bool HttpReq::sendReq()
+bool HttpReq::sendReq() // unfinnished
 {
     try {
         // Initialisieren von cURLpp

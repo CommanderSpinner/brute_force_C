@@ -15,10 +15,10 @@ private:
         std::string passwordFieldName);
 public:
     Sender(
-    std::string url,
-    std::string nameOfLoginNameField,
-    std::string nameToLogin,
-    std::string passwordFieldName);
+        std::string url,
+        std::string nameOfLoginNameField,
+        std::string nameToLogin,
+        std::string passwordFieldName);
     ~Sender();
 };
 

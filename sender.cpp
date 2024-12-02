@@ -28,6 +28,9 @@ bool Sender::tryPassword(
     std::string nameToLogin,
     std::string passwordFieldName)
 {
+    this->passwordTry = ""; // implement logic later
+
+    HttpReq req(url, nameOfLoginNameField, nameToLogin, passwordFieldName);
 
     return true;
 }
