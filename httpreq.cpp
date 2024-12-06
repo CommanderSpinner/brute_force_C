@@ -1,5 +1,7 @@
 #include "httpreq.h"
 #include <QApplication>
+#include <cstdio>
+#include <cstring>
 
 HttpReq::HttpReq(
     std::string url,
@@ -45,12 +47,16 @@ bool HttpReq::sendReq() // unfinnished
         // Anfrage ausführen
         request.perform();
 
-        qDebug() << "request send" << std::endl;
+        qDebug() << "request send\n";
     } catch (curlpp::RuntimeError &e) {
-        qDebug() << "Runtime Error: " << e.what() << std::endl;
+        //const char* msg[100];
+
+        std::string msg = "Runtime Error:" + (std::string)(e.what()) + "\n";
+        qDebug(msg.c_str());
         return false;
     } catch (curlpp::LogicError &e) {
-        qDebug() << "Logic Error: " << e.what() << std::endl;
+        std::string msg = "Runtime Error:" + (std::string)(e.what()) + "\n";
+        qDebug(msg.c_str());
         return false;
     }
 

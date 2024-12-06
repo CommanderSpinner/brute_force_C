@@ -1,4 +1,5 @@
 #include "sender.h"
+#include "httpreq.h"
 #include <QApplication>
 #include <iostream>
 #include <string>
@@ -30,7 +31,7 @@ bool Sender::tryPassword(
 {
     this->passwordTry = ""; // implement logic later
 
-    HttpReq req(url, nameOfLoginNameField, nameToLogin, passwordFieldName);
+    HttpReq req(url, nameOfLoginNameField, nameToLogin, passwordFieldName, passwordTry);
 
     if(!req.sendReq()){
         qDebug() << "sometihng went wrong while sending the request!\n";
