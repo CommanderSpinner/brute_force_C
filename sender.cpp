@@ -16,33 +16,37 @@ Sender::Sender(
 {
     qDebug() << "Sender instantiated\n";
 
-    this->tryPassword(
+    bool success = this->tryPassword(
         url,
         nameOfLoginNameField,
         nameToLogin,
         passwordFieldName
         );
+    if(success){
+        qDebug("success!");
+    }
 }
 
 Sender::~Sender(){
     qDebug() << "Sender destroyed\n";
 }
 
-bool Sender::tryPassword(
+/*
+gotta implement to check if the req is sucessfull
+*/
+bool Sender::tryPassword(//unfinnished
     std::string url,
     std::string nameOfLoginNameField,
     std::string nameToLogin,
     std::string passwordFieldName)
 {
-    this->passwordTry = ""; // implement logic later
+    for(size_t i = 0; i <= 18446744073709551614; i++)
+    {
+        this->passwordTry = combination_at_index(i); // implement logic later
 
-    HttpReq req(url, nameOfLoginNameField, nameToLogin, passwordFieldName, passwordTry);
-
-    if(!req.sendReq()){
-        qDebug() << "sometihng went wrong while sending the request!\n";
-        return false;
+        HttpReq req(url, nameOfLoginNameField, nameToLogin, passwordFieldName, passwordTry);
+        req.sendReq()
     }
-
     return true;
 }
 

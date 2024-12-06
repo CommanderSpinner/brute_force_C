@@ -20,6 +20,7 @@ public:
     bool sendReq();
     ~HttpReq();
 private:
+    bool success = false;
     std::string url;
     std::string nameOfLoginNameField;
     std::string nameToLogin;
