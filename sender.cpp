@@ -12,17 +12,16 @@ Sender::Sender(
     std::string passwordFieldName)
 {
     qDebug() << "Sender instantiated\n";
-    tryingPassword = true;
 
     this->tryPassword(
         url,
         nameOfLoginNameField,
         nameToLogin,
-        passwordFieldName);
+        passwordFieldName
+        );
 }
 
 Sender::~Sender(){
-    tryingPassword = false;
     qDebug() << "Sender destroyed\n";
 }
 
