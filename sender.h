@@ -6,6 +6,7 @@
 class Sender
 {
 private:
+    static const char* char_set; // "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=~`[]{}|;:'\",.<>?/";
     HttpReq* req;
     std::string passwordTry;
     bool tryPassword(
@@ -13,6 +14,7 @@ private:
         std::string nameOfLoginNameField,
         std::string nameToLogin,
         std::string passwordFieldName);
+    std::string combination_at_index(int index);
 public:
     Sender(
         std::string url,
