@@ -49,8 +49,6 @@ bool HttpReq::sendReq() // unfinnished
 
         qDebug() << "request send\n";
     } catch (curlpp::RuntimeError &e) {
-        //const char* msg[100];
-
         std::string msg = "Runtime Error:" + (std::string)(e.what()) + "\n";
         qDebug(msg.c_str());
         return false;

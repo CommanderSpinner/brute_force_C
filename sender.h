@@ -6,6 +6,7 @@
 class Sender
 {
 private:
+    static bool tryingPassword = false;
     HttpReq* req;
     std::string passwordTry;
     bool tryPassword(

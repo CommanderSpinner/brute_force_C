@@ -3,6 +3,7 @@
 #include <QApplication>
 #include <iostream>
 #include <string>
+#include <thread>
 
 Sender::Sender(
     std::string url,
@@ -11,6 +12,8 @@ Sender::Sender(
     std::string passwordFieldName)
 {
     qDebug() << "Sender instantiated\n";
+    tryingPassword = true;
+
     this->tryPassword(
         url,
         nameOfLoginNameField,
@@ -19,6 +22,7 @@ Sender::Sender(
 }
 
 Sender::~Sender(){
+    tryingPassword = false;
     qDebug() << "Sender destroyed\n";
 }
 
