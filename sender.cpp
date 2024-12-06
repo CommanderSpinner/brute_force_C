@@ -25,7 +25,6 @@ Sender::~Sender(){
     qDebug() << "Sender destroyed\n";
 }
 
-
 bool Sender::tryPassword(
     std::string url,
     std::string nameOfLoginNameField,
