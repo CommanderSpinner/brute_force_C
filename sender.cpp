@@ -6,6 +6,9 @@
 #include <thread>
 #include <cstring>
 
+bool thread1();
+bool thread2();
+
 const char* Sender::char_set = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=~`[]{}|;:'\",.<>?/";
 
 Sender::Sender(
@@ -20,7 +23,8 @@ Sender::Sender(
         url,
         nameOfLoginNameField,
         nameToLogin,
-        passwordFieldName
+        passwordFieldName,
+        0
         );
     if(success){
         qDebug("success!");
@@ -38,16 +42,19 @@ bool Sender::tryPassword(//unfinnished
     std::string url,
     std::string nameOfLoginNameField,
     std::string nameToLogin,
-    std::string passwordFieldName)
+    std::string passwordFieldName,
+    int startAt)
 {
-    for(size_t i = 0; i <= 18446744073709551614; i++)
+
+    for(size_t i = startAt; i <= 18446744073709551614; i += 2)// one time its gonna start from 1 and one time from 0 to make it easyer with 2 threads
     {
-        this->passwordTry = combination_at_index(i); // implement logic later
+        this->passwordTry = combination_at_index(i);
 
         HttpReq req(url, nameOfLoginNameField, nameToLogin, passwordFieldName, passwordTry);
-        req.sendReq()
+        if(req.sendReq())
+            return true;
     }
-    return true;
+    return false;
 }
 
 std::string Sender::combination_at_index(int index) {
