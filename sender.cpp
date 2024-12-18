@@ -36,8 +36,8 @@ Sender::~Sender(){
 }
 
 /*
-gotta implement to check if the req is sucessfull
-*/
+ * gotta implement to check if the req is sucessfull
+ */
 bool Sender::tryPassword(//unfinnished
     std::string url,
     std::string nameOfLoginNameField,
@@ -45,8 +45,11 @@ bool Sender::tryPassword(//unfinnished
     std::string passwordFieldName,
     int startAt)
 {
-
-    for(size_t i = startAt; i <= 18446744073709551614; i += 2)// one time its gonna start from 1 and one time from 0 to make it easyer with 2 threads
+    /*
+     *  one time its gonna start from 1 and one time from 0 to make it easyer with 2 threads#
+     *  +=2 for 2 threads. one is gonna cover all odd numbers and one all even ones
+     */
+    for(size_t i = startAt; i <= 18446744073709551614; i += 2)
     {
         this->passwordTry = combination_at_index(i);
 
