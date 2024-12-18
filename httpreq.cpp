@@ -38,16 +38,25 @@ bool HttpReq::sendReq() // unfinnished
 
         // set form data
         curlpp::Forms formParts;
+
         //unfinnished
         formParts.push_back(new curlpp::FormParts::Content("name", "Max Mustermann"));
         formParts.push_back(new curlpp::FormParts::Content("email", "max@example.com"));
 
         request.setOpt(new curlpp::options::HttpPost(formParts));
 
+        std::ostringstream responseStream;
+        request.setOpt(new curlpp::options::WriteStream(&responseStream));
+
+
         // Anfrage ausführen
         request.perform();
 
+        // Analyze the response
+        std::string response = responseStream.str();
+
         qDebug() << "request send\n";
+        return response.find("Login successful") != std::string::npos;
     } catch (curlpp::RuntimeError &e) {
         std::string msg = "Runtime Error:" + (std::string)(e.what()) + "\n";
         qDebug(msg.c_str());
@@ -58,5 +67,5 @@ bool HttpReq::sendReq() // unfinnished
         return false;
     }
 
-    return true;
+    return false;
 }
