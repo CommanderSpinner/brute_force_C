@@ -15,7 +15,7 @@ private:
         std::string nameToLogin,
         std::string passwordFieldName,
         int startAt);
-    static std::string combination_at_index(int index);
+    static std::string combination_at_index(unsigned int index);
 public:
     Sender(
         std::string url,

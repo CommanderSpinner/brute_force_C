@@ -44,7 +44,6 @@ void MainWindow::on_btn_Force_clicked()
              << "nameOfLoginNameField: " << nameOfLoginNameField << "\n"
              << "url: " << url << "\n"
              << "\n";
-    //std::unique_ptr<HttpReq> req = std::make_unique<HttpReq>();
 
     std::unique_ptr<Sender> send = std::make_unique<Sender>(
     url,

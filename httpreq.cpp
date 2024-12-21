@@ -2,6 +2,9 @@
 #include <QApplication>
 #include <cstdio>
 #include <cstring>
+#include <string>
+#include <sstream>
+#include <iostream>
 
 HttpReq::HttpReq(
     std::string url,

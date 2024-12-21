@@ -36,9 +36,9 @@ Sender::~Sender(){
 }
 
 /*
- * gotta implement to check if the req is sucessfull
+ * gotta implement to check if the req is sucessfull. is done?
  */
-bool Sender::tryPassword(//unfinnished
+bool Sender::tryPassword(//unfinnished?
     std::string url,
     std::string nameOfLoginNameField,
     std::string nameToLogin,
@@ -52,6 +52,10 @@ bool Sender::tryPassword(//unfinnished
     for(size_t i = startAt; i <= 18446744073709551614; i += 2)
     {
         this->passwordTry = combination_at_index(i);
+        const std::string concatenated = std::string("password try:") + this->passwordTry;
+        const char* output = concatenated.c_str();
+        qDebug(output);
+
 
         HttpReq req(url, nameOfLoginNameField, nameToLogin, passwordFieldName, passwordTry);
         if(req.sendReq())
@@ -60,7 +64,7 @@ bool Sender::tryPassword(//unfinnished
     return false;
 }
 
-std::string Sender::combination_at_index(int index) {
+std::string Sender::combination_at_index(unsigned int index) {
     int base = strlen(char_set);  // Total number of characters in the set
     std::string result;
 
