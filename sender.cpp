@@ -11,6 +11,7 @@ bool thread2();
 
 const char* Sender::char_set = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=~`[]{}|;:'\",.<>?/";
 
+// gotta add 2 threads
 Sender::Sender(
     std::string url,
     std::string nameOfLoginNameField,
@@ -37,6 +38,7 @@ Sender::~Sender(){
 
 /*
  * gotta implement to check if the req is sucessfull. is done?
+ * ---------- remove this coment later
  */
 bool Sender::tryPassword(//unfinnished?
     std::string url,

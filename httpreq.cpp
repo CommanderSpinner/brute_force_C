@@ -28,7 +28,7 @@ HttpReq::~HttpReq()
     qDebug() << "Request destroyed";
 }
 
-bool HttpReq::sendReq() // unfinnished
+bool HttpReq::sendReq()
 {
     try
     {
