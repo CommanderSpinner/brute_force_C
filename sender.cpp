@@ -9,6 +9,27 @@
 bool thread1();
 bool thread2();
 
+bool thread1()
+{
+    bool success = this->tryPassword(
+        url,
+        nameOfLoginNameField,
+        nameToLogin,
+        passwordFieldName,
+        0
+        );
+}
+
+bool thread2(){
+    bool success = this->tryPassword(
+        url,
+        nameOfLoginNameField,
+        nameToLogin,
+        passwordFieldName,
+        1
+        );
+}
+
 const char* Sender::char_set = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=~`[]{}|;:'\",.<>?/";
 
 // gotta add 2 threads
@@ -20,6 +41,7 @@ Sender::Sender(
 {
     qDebug() << "Sender instantiated\n";
 
+    /*
     bool success = this->tryPassword(
         url,
         nameOfLoginNameField,
@@ -27,6 +49,8 @@ Sender::Sender(
         passwordFieldName,
         0
         );
+    */
+
     if(success){
         qDebug("success!");
     }
