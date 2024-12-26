@@ -6,21 +6,11 @@
 #include <thread>
 #include <cstring>
 
-bool thread1();
-bool thread2();
-
-bool thread1()
-{
-    bool success = this->tryPassword(
-        url,
-        nameOfLoginNameField,
-        nameToLogin,
-        passwordFieldName,
-        0
-        );
-}
-
-bool thread2(){
+bool thread2(
+    std::string url,
+    std::string nameOfLoginNameField,
+    std::string nameToLogin,
+    std::string passwordFieldName){
     bool success = this->tryPassword(
         url,
         nameOfLoginNameField,
@@ -41,6 +31,43 @@ Sender::Sender(
 {
     qDebug() << "Sender instantiated\n";
 
+    std::promise<bool> promise1;
+    std::future<bool> result1 = promise1.get_future();
+    std::promise<bool> promise2;
+    std::future<bool> result2 = promise2.get_future();
+
+    // Create a thread and use a lambda function that returns a bool
+    std::thread t1([&promise1]() {
+
+        bool success = this->tryPassword(
+            url,
+            nameOfLoginNameField,
+            nameToLogin,
+            passwordFieldName,
+            0
+            );
+        // Set the result in the promise
+        promise1.set_value(success);
+    });
+    std::thread t2([&promise2]() {
+
+        bool success = this->tryPassword(
+            url,
+            nameOfLoginNameField,
+            nameToLogin,
+            passwordFieldName,
+            1
+            );
+        // Set the result in the promise
+        promise2.set_value(success);
+    });
+
+    bool resultT1 = result.get();
+    bool resultT2 = result.get();
+
+    if(resultT1 || resultT2){
+        qDebug("success!");
+    }
     /*
     bool success = this->tryPassword(
         url,
@@ -50,10 +77,6 @@ Sender::Sender(
         0
         );
     */
-
-    if(success){
-        qDebug("success!");
-    }
 }
 
 Sender::~Sender(){
