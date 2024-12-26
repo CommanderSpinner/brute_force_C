@@ -3,21 +3,28 @@
 #include <QApplication>
 #include <iostream>
 #include <string>
-#include <thread>
 #include <cstring>
+#include <thread>
+#include <future>
+#include <atomic>
 
-bool thread2(
-    std::string url,
-    std::string nameOfLoginNameField,
-    std::string nameToLogin,
-    std::string passwordFieldName){
-    bool success = this->tryPassword(
-        url,
-        nameOfLoginNameField,
-        nameToLogin,
-        passwordFieldName,
-        1
-        );
+//unfinnished
+void Sender::runOnTwoThreads() {
+
+    // First thread
+    std::thread t1([this, this->url, this->nameOfLoginNameField, this->nameToLogin, this->passwordFieldName]() {
+        resultT1 = tryPassword(url, nameOfLoginNameField, nameToLogin, passwordFieldName, 0);
+    });
+
+    // Second thread
+    std::thread t2([this, this->url, this->nameOfLoginNameField, this->nameToLogin, this->passwordFieldName]() {
+        resultT1 = tryPassword(url, nameOfLoginNameField, nameToLogin, passwordFieldName, 1);
+    });
+
+
+    // Wait for both threads to finish
+    t1.join();
+    t2.join();
 }
 
 const char* Sender::char_set = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=~`[]{}|;:'\",.<>?/";
@@ -31,41 +38,9 @@ Sender::Sender(
 {
     qDebug() << "Sender instantiated\n";
 
-    std::promise<bool> promise1;
-    std::future<bool> result1 = promise1.get_future();
-    std::promise<bool> promise2;
-    std::future<bool> result2 = promise2.get_future();
+    runOnTwoThreads();
 
-    // Create a thread and use a lambda function that returns a bool
-    std::thread t1([&promise1]() {
-
-        bool success = this->tryPassword(
-            url,
-            nameOfLoginNameField,
-            nameToLogin,
-            passwordFieldName,
-            0
-            );
-        // Set the result in the promise
-        promise1.set_value(success);
-    });
-    std::thread t2([&promise2]() {
-
-        bool success = this->tryPassword(
-            url,
-            nameOfLoginNameField,
-            nameToLogin,
-            passwordFieldName,
-            1
-            );
-        // Set the result in the promise
-        promise2.set_value(success);
-    });
-
-    bool resultT1 = result.get();
-    bool resultT2 = result.get();
-
-    if(resultT1 || resultT2){
+    if(this->resultT1 || this->resultT2){
         qDebug("success!");
     }
     /*

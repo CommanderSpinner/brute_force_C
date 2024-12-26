@@ -16,7 +16,10 @@ private:
         std::string passwordFieldName,
         int startAt);
     static std::string combination_at_index(unsigned int index);
+    void runOnTwoThreads();
 public:
+    std::atomic<bool> resultT1{false};
+    std::atomic<bool> resultT2{false};
     Sender(
         std::string url,
         std::string nameOfLoginNameField,
