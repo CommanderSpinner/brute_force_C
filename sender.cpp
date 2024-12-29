@@ -7,7 +7,8 @@ Sender::Sender(
     std::string url,
     std::string nameOfLoginNameField,
     std::string nameToLogin,
-    std::string passwordFieldName)
+    std::string passwordFieldName,
+    size_t countThreads)
 {
     qDebug() << "Sender instantiated\n";
 
@@ -36,6 +37,11 @@ Sender::Sender(
     */
 }
 
+size_t calculateRange()
+{
+
+}
+
 Sender::~Sender(){
     qDebug() << "Sender destroyed\n";
 }
@@ -44,10 +50,9 @@ void Sender::tryPassword(//unfinnished?
     std::string url,
     std::string nameOfLoginNameField,
     std::string nameToLogin,
-    std::string passwordFieldName,
-    size_t countThreads)
+    std::string passwordFieldName)
 {
-    for(size_t i = countThreads; i <= 18446744073709551614; i += countThreads)
+    for(size_t i = this->rangeOfThreads; i <= 18446744073709551614; i++)
     {
         this->passwordTry = combination_at_index(i);
 

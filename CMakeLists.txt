@@ -33,6 +33,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         debugConsole.cpp
         httpreq.h httpreq.cpp
         sender.h sender.cpp
+        threadList.h threadList.cpp
 
     )
 else()

@@ -49,6 +49,8 @@ void MainWindow::on_btn_Force_clicked()
     url,
     nameOfLoginNameField,
     nameToLogin,
-    passwordFieldName);
+    passwordFieldName,
+    2 // number of threads
+    );
 
 }
