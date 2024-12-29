@@ -4,6 +4,13 @@
 #include <QMainWindow>
 #include <curlpp/cURLpp.hpp>
 #include <curlpp/Easy.hpp>
+#include "./ui_mainwindow.h"
+#include <iostream>
+#include <curlpp/cURLpp.hpp>
+#include <curlpp/Easy.hpp>
+#include <memory>
+#include "httpreq.h"
+#include "sender.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {

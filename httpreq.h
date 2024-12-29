@@ -6,6 +6,12 @@
 #include <curlpp/Exception.hpp>
 #include <iostream>
 #include <string>
+#include <QApplication>
+#include <cstdio>
+#include <cstring>
+#include <string>
+#include <sstream>
+#include <iostream>
 
 class HttpReq
 {

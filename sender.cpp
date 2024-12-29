@@ -31,6 +31,13 @@ void Sender::tryPassword(
     // Function that each thread will run
     auto threadFunction = [this, &url, &nameOfLoginNameField, &nameToLogin, &passwordFieldName, &trySuccessMutex](size_t startIndex, size_t endIndex) {
         for (size_t i = startIndex; i < endIndex; i++) {
+            // If the password has already been found, exit the loop early
+            {
+                std::lock_guard<std::mutex> lock(trySuccessMutex);
+                if (this->trySuccess) {
+                    break; // Exit if password has already been found
+                }
+            }
             this->passwordTry = combination_at_index(i);
 
             const std::string concatenated = "password try: " + this->passwordTry;
