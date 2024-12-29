@@ -10,6 +10,7 @@ private:
     HttpReq* req;
     bool trySuccess = false;
     std::string passwordTry;
+    std::unique_ptr<int[]> heapArray(new int[]);
     void tryPassword(
         std::string url,
         std::string nameOfLoginNameField,

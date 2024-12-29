@@ -49,20 +49,13 @@ Sender::~Sender(){
     qDebug() << "Sender destroyed\n";
 }
 
-/*
- * ---------- remove this coment later
- */
 void Sender::tryPassword(//unfinnished?
     std::string url,
     std::string nameOfLoginNameField,
     std::string nameToLogin,
     std::string passwordFieldName,
-    countThreads)
+    size_t countThreads)
 {
-    /* ------------- gotta rewrite
-     *  one time its gonna start from 1 and one time from 0 to make it easyer with 2 threads#
-     *  +=2 for 2 threads. one is gonna cover all odd numbers and one all even ones
-     */
     for(size_t i = countThreads; i <= 18446744073709551614; i += countThreads)
     {
         this->passwordTry = combination_at_index(i);
