@@ -19,22 +19,20 @@ private:
     HttpReq* req;
     bool trySuccess = false;
     std::string passwordTry;
-    std::vector<std::thread> threads;
-    size_t rangeOfThreads = 0;
     void tryPassword(
         std::string url,
         std::string nameOfLoginNameField,
         std::string nameToLogin,
-        std::string passwordFieldName);
+        std::string passwordFieldName,
+        size_t numThreads);
     static std::string combination_at_index(unsigned int index);
-    size_t calculateRange();
 public:
 
     Sender(
         std::string url,
         std::string nameOfLoginNameField,
         std::string nameToLogin,
-        std::string passwordFieldName
+        std::string passwordFieldName,
         size_t countThreads);
     ~Sender();
 };

