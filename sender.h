@@ -2,6 +2,15 @@
 #define SENDER_H
 #include "httpreq.h"
 #include <QApplication>
+#include "httpreq.h"
+#include <QApplication>
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <thread>
+#include <future>
+#include <atomic>
+#include <vector>
 
 class Sender
 {
@@ -10,14 +19,13 @@ private:
     HttpReq* req;
     bool trySuccess = false;
     std::string passwordTry;
-    std::unique_ptr<int[]> heapArray(new int[]);
+    //std::unique_ptr<int[]> heapArray(new int[]);
     void tryPassword(
         std::string url,
         std::string nameOfLoginNameField,
         std::string nameToLogin,
         std::string passwordFieldName,
-        int startAt,
-        countThreads);
+        size_t countThreads);
     static std::string combination_at_index(unsigned int index);
 public:
 
@@ -25,7 +33,7 @@ public:
         std::string url,
         std::string nameOfLoginNameField,
         std::string nameToLogin,
-        std::string passwordFieldName, countThreads);
+        std::string passwordFieldName);
     ~Sender();
 };
 

@@ -1,13 +1,4 @@
 #include "sender.h"
-#include "httpreq.h"
-#include <QApplication>
-#include <iostream>
-#include <string>
-#include <cstring>
-#include <thread>
-#include <future>
-#include <atomic>
-#include <vector>
 
 const char* Sender::char_set = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=~`[]{}|;:'\",.<>?/";
 
