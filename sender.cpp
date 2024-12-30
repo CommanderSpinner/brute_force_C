@@ -63,7 +63,13 @@ void Sender::tryPassword(
     // Start threads
     for (size_t t = 0; t < numThreads; t++) {
         size_t startIndex = t * rangePerThread;
+        char[10] index;
+        sprintf(index, "%d", startIndex);
+        qDebug("start index:" + index);
+        memset(index, '\0', sizeof(index));
         size_t endIndex = (t == numThreads - 1) ? totalCombinations : (t + 1) * rangePerThread;
+        sprintf(index, "%d", endIndex);
+        qDebug("end index:" + index);
 
         threads.emplace_back(threadFunction, startIndex, endIndex);
     }
