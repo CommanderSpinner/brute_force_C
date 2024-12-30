@@ -22,7 +22,7 @@ HttpReq::~HttpReq()
     qDebug() << "Request destroyed";
 }
 
-bool HttpReq::sendReq()
+bool HttpReq::sendReq(bool logging)
 {
     try
     {
@@ -53,6 +53,21 @@ bool HttpReq::sendReq()
         std::string response = responseStream.str();
 
         qDebug() << "request send\n";
+        qDebug() << QString::fromStdString(response);
+
+        if(logging){
+            //log to file
+            std::ofstream logFile;
+            logFile.open(logFileName, std::ios::app); // Open in append mode
+            if (!logFile) {
+                std::cerr << "Error opening log file: " << logFileName << std::endl;
+                return false;
+            }
+
+            logFile << response << std::endl; // Append response to the file
+            logFile.close();
+        }
+
         return response.find("Login successful") != std::string::npos;
     } catch (curlpp::RuntimeError &e) {
         std::string msg = "Runtime Error:" + (std::string)(e.what()) + "\n";

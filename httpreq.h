@@ -11,6 +11,7 @@
 #include <cstring>
 #include <string>
 #include <sstream>
+#include <fstream>
 #include <iostream>
 
 class HttpReq

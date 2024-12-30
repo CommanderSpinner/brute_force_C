@@ -44,7 +44,7 @@ void Sender::tryPassword(
             const char* output = concatenated.c_str();
             qDebug(output);
 
-            HttpReq req(url, nameOfLoginNameField, nameToLogin, passwordFieldName, passwordTry);
+            HttpReq req(url, nameOfLoginNameField, nameToLogin, passwordFieldName, passwordTry, true); // with logging
             if (req.sendReq()) {
                 // Lock mutex to modify shared variable trySuccess
                 std::lock_guard<std::mutex> lock(trySuccessMutex);
